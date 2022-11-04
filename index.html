@@ -7,7 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/link.html">Link to an app store</a>
+    
 </body>
+<script>
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
+    // Huawei Phone must come first because its UA also contains "Android"
+    if (userAgent.includes("HUAWEI")) {
+        window.location.replace("https://play.google.com/store/apps/details?id=com.heritage_4_life");
+    } else if (userAgent.includes("Android")) {
+        window.location.replace("https://play.google.com/store/apps/details?id=org.telegram.messenger&hl=en&gl=US");
+    } else if (userAgent.includes("iPhone")) {
+        window.location.replace("https://apps.apple.com/lt/app/heritage-4-life/id1612481195");
+    } else {
+        //cant be sure about device, so redirect to home page
+        window.location.replace("https://google.ro");
+    }
+</script>
 </html>
